@@ -49,15 +49,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard/stats', [DashboardController::class, 'index']);
 
     // School routes
-    Route::middleware('can:school.view')->group(function () {
+    // Route::middleware('can:school.view')->group(function () {
         Route::get('/school', [SchoolController::class, 'show']);
         Route::get('/school/check', [SchoolController::class, 'checkRegistration']);
-    });
+    // });
     
-    Route::middleware('can:school.edit')->group(function () {
+    // Route::middleware('can:school.edit')->group(function () {
         Route::post('/school', [SchoolController::class, 'store']);
         Route::put('/school', [SchoolController::class, 'update']);
-    });
+    // });
 
     // Location routes
     Route::get('/locations/provinces', [LocationController::class, 'getProvinces']);

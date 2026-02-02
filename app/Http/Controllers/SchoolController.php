@@ -118,8 +118,8 @@ class SchoolController extends Controller
             // Set team ID for role assignment (school-scoped permissions)
             $this->permissionRegistrar->setPermissionsTeamId($school->id);
 
-            // Assign super-admin role to the school creator
-            $user->assignRole('super-admin');
+            // Assign school-admin role to the school creator with school_id
+            $user->assignRole(['school-admin' => $school->id]);
 
             DB::commit();
 

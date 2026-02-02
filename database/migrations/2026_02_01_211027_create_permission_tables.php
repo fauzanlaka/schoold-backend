@@ -82,10 +82,12 @@ return new class extends Migration
                 ->references('id') // role id
                 ->on($tableNames['roles'])
                 ->onDelete('cascade');
-            if ($teams) {
-                $table->unsignedBigInteger($columnNames['team_foreign_key']);
-                $table->index($columnNames['team_foreign_key'], 'model_has_roles_team_foreign_key_index');
 
+            // Always create school_id column as nullable
+            $table->unsignedBigInteger($columnNames['team_foreign_key'])->nullable();
+            $table->index($columnNames['team_foreign_key'], 'model_has_roles_team_foreign_key_index');
+
+            if ($teams) {
                 $table->primary([$columnNames['team_foreign_key'], $pivotRole, $columnNames['model_morph_key'], 'model_type'],
                     'model_has_roles_role_model_type_primary');
             } else {

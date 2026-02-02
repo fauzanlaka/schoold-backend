@@ -51,7 +51,7 @@ class AuthController extends Controller
         ]);
 
         // Assign default role to new user
-        $user->assignRole('staff');
+        // $user->assignRole('staff');
 
         // Send email verification notification
         $user->sendEmailVerificationNotification();
