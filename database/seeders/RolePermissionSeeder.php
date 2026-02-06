@@ -84,11 +84,11 @@ class RolePermissionSeeder extends Seeder
         ]);
 
         // Staff - basic access
-        $staff = Role::firstOrCreate(['name' => 'staff', 'guard_name' => 'web']);
-        $staff->givePermissionTo([
-            'school.view',
-            'assets.view', 'assets.create', 'assets.edit',
-            'asset-categories.view',
-        ]);
+        // $staff = Role::firstOrCreate(['name' => 'equipment-staff', 'guard_name' => 'web']);
+        // $staff->givePermissionTo([
+        //     'school.view',
+        //     'assets.view', 'assets.create', 'assets.edit',
+        //     'asset-categories.view', 'asset-categories.create', 'asset-categories.edit',
+        // ]);
     }
 }

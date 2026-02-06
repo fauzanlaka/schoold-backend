@@ -119,7 +119,7 @@ class SchoolController extends Controller
             $this->permissionRegistrar->setPermissionsTeamId($school->id);
 
             // Assign school-admin role to the school creator with school_id
-            $user->assignRole(['school-admin' => $school->id]);
+            $user->assignRole('school-admin');
 
             DB::commit();
 
@@ -136,7 +136,7 @@ class SchoolController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => 'เกิดข้อผิดพลาดในการลงทะเบียน: '.$e->getMessage(),
+                'message' => 'เกิดข้อผิดพลาดในการลงทะเบียน: '.$e->getMessage().'school_id: '.$school->id,
             ], 500);
         }
     }
